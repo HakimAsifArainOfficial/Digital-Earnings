@@ -252,8 +252,13 @@
 
 
 
-<!-- =========================================
-     CREATE ACCOUNT — PART 2
+
+
+
+
+
+  <!-- =========================================
+     CREATE ACCOUNT — FINAL BLOCK
      ========================================= -->
 
 <style>
@@ -271,44 +276,47 @@
     margin-bottom: 8px;
   }
 
-  .create-account-section p {
+  .create-account-intro {
     color: #666;
     font-size: 14px;
     line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .account-field {
     margin-bottom: 16px;
   }
 
   .account-label {
     display: block;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
-    margin-bottom: 6px;
-    color: #333;
+    color: #222;
+    margin-bottom: 5px;
+  }
+
+  .account-explanation {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 7px;
   }
 
   .account-input,
   .account-select {
     width: 100%;
     padding: 12px;
-    margin-bottom: 13px;
     border: 1px solid #d9dde2;
     border-radius: 7px;
+    background: #fff;
+    color: #222;
     font-size: 14px;
     outline: none;
-    background: #fff;
   }
 
   .account-input:focus,
   .account-select:focus {
     border-color: #18212b;
-  }
-
-  .account-help {
-    font-size: 12px;
-    color: #777;
-    line-height: 1.6;
-    margin-top: -7px;
-    margin-bottom: 14px;
   }
 
   .account-divider {
@@ -317,7 +325,22 @@
     margin: 20px 0;
   }
 
-  .account-section-title {
+  .messenger-contact {
+    display: none;
+    margin-top: 12px;
+  }
+
+  .password-rules {
+    background: #f2f4f7;
+    border-radius: 7px;
+    padding: 11px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  .agreement-title {
     font-size: 15px;
     font-weight: bold;
     margin-bottom: 12px;
@@ -329,17 +352,24 @@
     gap: 8px;
     margin-bottom: 10px;
     font-size: 13px;
-    line-height: 1.5;
     color: #444;
+    line-height: 1.5;
   }
 
   .agreement input {
     margin-top: 3px;
+    flex-shrink: 0;
   }
 
-  .account-btn {
+  .agreement a {
+    color: #18212b;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .create-account-btn {
     width: 100%;
-    padding: 12px;
+    padding: 13px;
     border: 0;
     border-radius: 7px;
     background: #18212b;
@@ -350,7 +380,7 @@
     margin-top: 8px;
   }
 
-  .account-btn:disabled {
+  .create-account-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
   }
@@ -365,40 +395,6 @@
     font-size: 13px;
     line-height: 1.5;
   }
-
-  .account-links {
-    text-align: center;
-    margin-top: 16px;
-    font-size: 13px;
-    line-height: 2;
-  }
-
-  .account-links a {
-    color: #18212b;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .public-info-note {
-    background: #f2f4f7;
-    border-radius: 7px;
-    padding: 12px;
-    margin-top: 18px;
-    font-size: 12px;
-    line-height: 1.7;
-    color: #555;
-  }
-
-  .security-note {
-    background: #f2f4f7;
-    border-radius: 7px;
-    padding: 12px;
-    margin-top: 12px;
-    font-size: 12px;
-    line-height: 1.7;
-    color: #555;
-  }
 </style>
 
 
@@ -406,260 +402,443 @@
 
   <h2>Create Account</h2>
 
-  <p>
-    Create your Digital Earnings account by completing the information below.
-  </p>
-
-
-  <!-- Full Name -->
-  <label class="account-label" for="createName">
-    Full Name
-  </label>
-
-  <input
-    type="text"
-    id="createName"
-    class="account-input"
-    placeholder="Enter your full name"
-    autocomplete="name"
-  >
-
-
-  <!-- Username -->
-  <label class="account-label" for="createUsername">
-    Username
-  </label>
-
-  <input
-    type="text"
-    id="createUsername"
-    class="account-input"
-    placeholder="Choose a username"
-    autocomplete="username"
-  >
-
-
-  <!-- Family Name -->
-  <label class="account-label" for="familyName">
-    خاندان کا نام
-  </label>
-
-  <input
-    type="text"
-    id="familyName"
-    class="account-input"
-    placeholder="مثلاً گجر، آرائیں، راجپوت، سرخیل، مندوخیل، پٹیل، لاکھانی، ملک، پانڈے"
-  >
-
-  <div class="account-help">
-    یہ معلومات اکاؤنٹ کی اضافی Security کے لیے استعمال ہوگی۔
+  <div class="create-account-intro">
+    Complete all required information below to create your Digital Earnings account.
   </div>
 
 
-  <!-- Email -->
-  <label class="account-label" for="createEmail">
-    Email Address
-  </label>
+  <!-- 1. Full Name -->
+  <div class="account-field">
 
-  <input
-    type="email"
-    id="createEmail"
-    class="account-input"
-    placeholder="Enter your email address"
-    autocomplete="email"
-  >
+    <label class="account-label" for="createName">
+      Full Name
+    </label>
 
+    <div class="account-explanation">
+      Enter your full name as you want it to appear on your account.
+    </div>
 
-  <!-- Mobile -->
-  <label class="account-label" for="mobileNumber">
-    Mobile Number
-  </label>
+    <input
+      type="text"
+      id="createName"
+      class="account-input"
+      placeholder="Enter your full name"
+      autocomplete="name"
+    >
 
-  <input
-    type="tel"
-    id="mobileNumber"
-    class="account-input"
-    placeholder="Enter your mobile number"
-    autocomplete="tel"
-  >
+  </div>
 
 
-  <!-- Messenger -->
-  <label class="account-label" for="messenger">
-    Select Messenger
-  </label>
+  <!-- 2. Username -->
+  <div class="account-field">
 
-  <select
-    id="messenger"
-    class="account-select"
-  >
-    <option value="">Select Messenger</option>
-    <option value="WhatsApp">WhatsApp</option>
-    <option value="Signal">Signal</option>
-    <option value="imo">imo</option>
-    <option value="Skype">Skype</option>
-    <option value="Telegram">Telegram</option>
-    <option value="Facebook Messenger">Facebook Messenger</option>
-  </select>
+    <label class="account-label" for="createUsername">
+      Username
+    </label>
 
-  <div class="account-help">
-    ضرورت پڑنے پر صارف سے رابطے کے لیے ایک Messenger منتخب کریں۔
+    <div class="account-explanation">
+      Choose a unique username for your account.
+    </div>
+
+    <input
+      type="text"
+      id="createUsername"
+      class="account-input"
+      placeholder="Choose a username"
+      autocomplete="username"
+    >
+
+  </div>
+
+
+  <!-- 3. Family Name -->
+  <div class="account-field">
+
+    <label class="account-label" for="familyName">
+      Family Name
+    </label>
+
+    <div class="account-explanation">
+      Enter your family or clan name, such as Gujjar, Arain, Rajput, Surkhel, Mandokhail, Patel, Lakhani, Malik, Pandey, etc.
+    </div>
+
+    <input
+      type="text"
+      id="familyName"
+      class="account-input"
+      placeholder="Enter your family name"
+    >
+
+  </div>
+
+
+  <!-- 4. Email Address -->
+  <div class="account-field">
+
+    <label class="account-label" for="createEmail">
+      Email Address
+    </label>
+
+    <div class="account-explanation">
+      Enter an active email address that you can access.
+    </div>
+
+    <input
+      type="email"
+      id="createEmail"
+      class="account-input"
+      placeholder="Enter your email address"
+      autocomplete="email"
+    >
+
+  </div>
+
+
+  <!-- 5. Mobile Number -->
+  <div class="account-field">
+
+    <label class="account-label" for="mobileNumber">
+      Mobile Number
+    </label>
+
+    <div class="account-explanation">
+      Enter your active mobile number for account contact and security purposes.
+    </div>
+
+    <input
+      type="tel"
+      id="mobileNumber"
+      class="account-input"
+      placeholder="Enter your mobile number"
+      autocomplete="tel"
+    >
+
+  </div>
+
+
+  <!-- 6. Select Messenger -->
+  <div class="account-field">
+
+    <label class="account-label" for="messenger">
+      Select Messenger
+    </label>
+
+    <div class="account-explanation">
+      Select one messenger that can be used to contact you when necessary.
+    </div>
+
+    <select
+      id="messenger"
+      class="account-select"
+      onchange="showMessengerContact()"
+    >
+
+      <option value="">
+        Select Messenger
+      </option>
+
+      <option value="WhatsApp">
+        WhatsApp
+      </option>
+
+      <option value="Signal">
+        Signal
+      </option>
+
+      <option value="imo">
+        imo
+      </option>
+
+      <option value="Skype">
+        Skype
+      </option>
+
+      <option value="Telegram">
+        Telegram
+      </option>
+
+      <option value="Facebook Messenger">
+        Facebook Messenger
+      </option>
+
+    </select>
+
+
+    <!-- 7. Messenger Contact -->
+    <div
+      class="messenger-contact"
+      id="messengerContactBox"
+    >
+
+      <label class="account-label" for="messengerContact">
+        Messenger Contact
+      </label>
+
+      <div class="account-explanation">
+        Enter the link, ID, mobile number, or username for your selected messenger.
+      </div>
+
+      <input
+        type="text"
+        id="messengerContact"
+        class="account-input"
+        placeholder="Enter your messenger link, ID, number, or username"
+      >
+
+    </div>
+
   </div>
 
 
   <hr class="account-divider">
 
 
-  <div class="account-section-title">
-    Account Creation Location
+  <!-- 8. Account Creation Country -->
+  <div class="account-field">
+
+    <label class="account-label" for="accountCreationCountry">
+      Account Creation Country
+    </label>
+
+    <div class="account-explanation">
+      Select the country where this account is being created. This information cannot be changed later.
+    </div>
+
+    <input
+      type="text"
+      id="accountCreationCountry"
+      class="account-input"
+      placeholder="Enter the account creation country"
+    >
+
   </div>
 
 
-  <!-- Country -->
-  <label class="account-label" for="accountCountry">
-    Country
-  </label>
+  <!-- 9. Account Creation City -->
+  <div class="account-field">
 
-  <input
-    type="text"
-    id="accountCountry"
-    class="account-input"
-    placeholder="Country where the account was created"
-  >
+    <label class="account-label" for="accountCreationCity">
+      Account Creation City
+    </label>
 
+    <div class="account-explanation">
+      Enter the city where this account is being created. This information cannot be changed later.
+    </div>
 
-  <!-- Province -->
-  <label class="account-label" for="accountProvince">
-    Province
-  </label>
+    <input
+      type="text"
+      id="accountCreationCity"
+      class="account-input"
+      placeholder="Enter the account creation city"
+    >
 
-  <input
-    type="text"
-    id="accountProvince"
-    class="account-input"
-    placeholder="Province / State"
-  >
+  </div>
 
 
-  <!-- City -->
-  <label class="account-label" for="accountCity">
-    City
-  </label>
+  <!-- 10. Current Country -->
+  <div class="account-field">
 
-  <input
-    type="text"
-    id="accountCity"
-    class="account-input"
-    placeholder="City where the account was created"
-  >
+    <label class="account-label" for="currentCountry">
+      Current Country
+    </label>
 
+    <div class="account-explanation">
+      Select the country where you currently live. This information may be updated later.
+    </div>
 
-  <!-- Postal Code -->
-  <label class="account-label" for="postalCode">
-    Postal Code
-  </label>
+    <input
+      type="text"
+      id="currentCountry"
+      class="account-input"
+      placeholder="Enter your current country"
+    >
 
-  <input
-    type="text"
-    id="postalCode"
-    class="account-input"
-    placeholder="Postal Code"
-    autocomplete="postal-code"
-  >
+  </div>
 
 
-  <div class="account-help">
-    یہ معلومات اس ملک اور شہر کا ریکارڈ رکھنے کے لیے ہے جہاں صارف نے
-    اپنا اکاؤنٹ Create کیا تھا۔
+  <!-- 11. Current Province -->
+  <div class="account-field">
+
+    <label class="account-label" for="currentProvince">
+      Current Province
+    </label>
+
+    <div class="account-explanation">
+      Enter the province or state where you currently live.
+    </div>
+
+    <input
+      type="text"
+      id="currentProvince"
+      class="account-input"
+      placeholder="Enter your current province or state"
+    >
+
+  </div>
+
+
+  <!-- 12. Current City -->
+  <div class="account-field">
+
+    <label class="account-label" for="currentCity">
+      Current City
+    </label>
+
+    <div class="account-explanation">
+      Enter the city where you currently live.
+    </div>
+
+    <input
+      type="text"
+      id="currentCity"
+      class="account-input"
+      placeholder="Enter your current city"
+    >
+
+  </div>
+
+
+  <!-- 13. Postal Code -->
+  <div class="account-field">
+
+    <label class="account-label" for="postalCode">
+      Postal Code
+    </label>
+
+    <div class="account-explanation">
+      Enter the postal code for your current location.
+    </div>
+
+    <input
+      type="text"
+      id="postalCode"
+      class="account-input"
+      placeholder="Enter your postal code"
+      autocomplete="postal-code"
+    >
+
   </div>
 
 
   <hr class="account-divider">
 
 
-  <div class="account-section-title">
-    Birth Information
+  <!-- 14. Birth City -->
+  <div class="account-field">
+
+    <label class="account-label" for="birthCity">
+      Birth City
+    </label>
+
+    <div class="account-explanation">
+      Enter the city where you were born.
+    </div>
+
+    <input
+      type="text"
+      id="birthCity"
+      class="account-input"
+      placeholder="Enter your birth city"
+    >
+
   </div>
 
 
-  <!-- Birth City -->
-  <label class="account-label" for="birthCity">
-    Birth City
-  </label>
+  <!-- 15. Date of Birth -->
+  <div class="account-field">
 
-  <input
-    type="text"
-    id="birthCity"
-    class="account-input"
-    placeholder="City where you were born"
-  >
+    <label class="account-label" for="dateOfBirth">
+      Date of Birth
+    </label>
 
+    <div class="account-explanation">
+      Enter your date of birth.
+    </div>
 
-  <!-- Date of Birth -->
-  <label class="account-label" for="dateOfBirth">
-    Date of Birth
-  </label>
+    <input
+      type="date"
+      id="dateOfBirth"
+      class="account-input"
+    >
 
-  <input
-    type="date"
-    id="dateOfBirth"
-    class="account-input"
-  >
+  </div>
 
 
   <hr class="account-divider">
 
 
-  <!-- Password -->
-  <label class="account-label" for="createPassword">
-    Password
-  </label>
+  <!-- 16. Password -->
+  <div class="account-field">
 
-  <input
-    type="password"
-    id="createPassword"
-    class="account-input"
-    placeholder="Create Password"
-    autocomplete="new-password"
-  >
+    <label class="account-label" for="createPassword">
+      Password
+    </label>
+
+    <div class="account-explanation">
+      Create a password that meets all of the security requirements below.
+    </div>
+
+    <input
+      type="password"
+      id="createPassword"
+      class="account-input"
+      placeholder="Create your password"
+      minlength="6"
+      maxlength="24"
+      autocomplete="new-password"
+    >
+
+    <div class="password-rules">
+      Password must contain 6–24 characters, including at least:
+      <br>
+      • 1 English lowercase letter (a–z)
+      <br>
+      • 1 English uppercase letter (A–Z)
+      <br>
+      • 1 number (0–9)
+      <br>
+      • 1 symbol (for example: ! @ # $ %)
+    </div>
+
+  </div>
 
 
-  <!-- Confirm Password -->
-  <label class="account-label" for="confirmPassword">
-    Confirm Password
-  </label>
+  <!-- 17. Confirm Password -->
+  <div class="account-field">
 
-  <input
-    type="password"
-    id="confirmPassword"
-    class="account-input"
-    placeholder="Confirm Password"
-    autocomplete="new-password"
-  >
+    <label class="account-label" for="confirmPassword">
+      Confirm Password
+    </label>
 
+    <div class="account-explanation">
+      Enter the same password again to confirm it.
+    </div>
 
-  <!-- Referral -->
-  <label class="account-label" for="referralCode">
-    Referral Code — optional
-  </label>
+    <input
+      type="password"
+      id="confirmPassword"
+      class="account-input"
+      placeholder="Confirm your password"
+      minlength="6"
+      maxlength="24"
+      autocomplete="new-password"
+    >
 
-  <input
-    type="text"
-    id="referralCode"
-    class="account-input"
-    placeholder="Enter referral code (optional)"
-  >
+  </div>
 
 
   <hr class="account-divider">
 
 
-  <!-- Agreement -->
-  <div class="account-section-title">
-    📋 Agreement
+  <!-- 18 & 19. Agreement -->
+
+  <div class="agreement-title">
+    Agreement
   </div>
+
 
   <label class="agreement">
+
     <input
       type="checkbox"
       id="termsAgreement"
@@ -671,10 +850,12 @@
         Terms &amp; Conditions
       </a>
     </span>
+
   </label>
 
 
   <label class="agreement">
+
     <input
       type="checkbox"
       id="privacyAgreement"
@@ -686,13 +867,14 @@
         Privacy Policy
       </a>
     </span>
+
   </label>
 
 
   <!-- Create Account -->
   <button
     type="button"
-    class="account-btn"
+    class="create-account-btn"
     id="createAccountBtn"
     onclick="createAccount()"
   >
@@ -705,67 +887,44 @@
     id="createAccountMessage"
   ></div>
 
-
-  <!-- Login / Recover -->
-  <div class="account-links">
-
-    Already have an account?
-    <a href="#" onclick="return false;">
-      Login
-    </a>
-
-    <br>
-
-    <a href="#" onclick="return false;">
-      Recover Account
-    </a>
-
-  </div>
-
-
-  <!-- Public Information -->
-  <div class="public-info-note">
-    <strong>Public Information</strong><br><br>
-
-    صرف یہ معلومات Public ہوگی:<br>
-    • Full Name<br>
-    • Country of residence<br>
-    • Account ID
-  </div>
-
-
-  <!-- Additional Security Information -->
-  <div class="security-note">
-    <strong>Additional Security Information</strong><br><br>
-
-    درج ذیل معلومات اکاؤنٹ کی اضافی Security کے لیے استعمال ہوں گی
-    اور صارف کے Public Profile میں ظاہر نہیں ہوں گی:<br><br>
-
-    • Account Creation Country<br>
-    • Account Creation City<br>
-    • Date of Birth<br>
-    • Birth City<br>
-    • خاندان کا نام
-  </div>
-
 </section>
 
 
 <script>
 
-  function showCreateAccount() {
+  /* Messenger selection */
 
-    const section =
-      document.getElementById("createAccount");
+  function showMessengerContact() {
 
-    section.style.display = "block";
+    const messenger =
+      document.getElementById("messenger").value;
 
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+    const contactBox =
+      document.getElementById("messengerContactBox");
+
+    const contactInput =
+      document.getElementById("messengerContact");
+
+
+    if (messenger) {
+
+      contactBox.style.display = "block";
+
+      contactInput.placeholder =
+        "Enter your " +
+        messenger +
+        " link, ID, number, or username";
+
+    } else {
+
+      contactBox.style.display = "none";
+
+      contactInput.value = "";
+    }
   }
 
+
+  /* Create Account */
 
   async function createAccount() {
 
@@ -787,14 +946,23 @@
     const messenger =
       document.getElementById("messenger").value;
 
-    const accountCountry =
-      document.getElementById("accountCountry").value.trim();
+    const messengerContact =
+      document.getElementById("messengerContact").value.trim();
 
-    const accountProvince =
-      document.getElementById("accountProvince").value.trim();
+    const accountCreationCountry =
+      document.getElementById("accountCreationCountry").value.trim();
 
-    const accountCity =
-      document.getElementById("accountCity").value.trim();
+    const accountCreationCity =
+      document.getElementById("accountCreationCity").value.trim();
+
+    const currentCountry =
+      document.getElementById("currentCountry").value.trim();
+
+    const currentProvince =
+      document.getElementById("currentProvince").value.trim();
+
+    const currentCity =
+      document.getElementById("currentCity").value.trim();
 
     const postalCode =
       document.getElementById("postalCode").value.trim();
@@ -810,9 +978,6 @@
 
     const confirmPassword =
       document.getElementById("confirmPassword").value;
-
-    const referralCode =
-      document.getElementById("referralCode").value.trim();
 
     const termsAgreement =
       document.getElementById("termsAgreement").checked;
@@ -836,9 +1001,12 @@
       !email ||
       !mobile ||
       !messenger ||
-      !accountCountry ||
-      !accountProvince ||
-      !accountCity ||
+      !messengerContact ||
+      !accountCreationCountry ||
+      !accountCreationCity ||
+      !currentCountry ||
+      !currentProvince ||
+      !currentCity ||
       !postalCode ||
       !birthCity ||
       !dateOfBirth ||
@@ -855,7 +1023,51 @@
     }
 
 
-    /* Password confirmation */
+    /* Password length */
+
+    if (password.length < 6 || password.length > 24) {
+
+      message.style.display = "block";
+
+      message.innerHTML =
+        "Password must contain between 6 and 24 characters.";
+
+      return;
+    }
+
+
+    /* Password requirements */
+
+    const hasLowercase =
+      /[a-z]/.test(password);
+
+    const hasUppercase =
+      /[A-Z]/.test(password);
+
+    const hasNumber =
+      /[0-9]/.test(password);
+
+    const hasSymbol =
+      /[^A-Za-z0-9]/.test(password);
+
+
+    if (
+      !hasLowercase ||
+      !hasUppercase ||
+      !hasNumber ||
+      !hasSymbol
+    ) {
+
+      message.style.display = "block";
+
+      message.innerHTML =
+        "Password must contain at least one English lowercase letter, one English uppercase letter, one number, and one symbol.";
+
+      return;
+    }
+
+
+    /* Confirm Password */
 
     if (password !== confirmPassword) {
 
@@ -886,36 +1098,20 @@
 
 
     /*
-     * ==========================================
-     * BACKEND CONNECTION
-     * ==========================================
+     * Backend connection will be added here.
      *
-     * یہ تمام information Backend Server کو
-     * HTTPS کے ذریعے بھیجی جائے گی۔
+     * The Backend Server will receive the account
+     * information through a secure HTTPS connection.
      *
-     * Password کو frontend یا database میں
-     * plain text کی صورت میں محفوظ نہیں کرنا۔
+     * Password must be securely hashed on the server.
      *
-     * Backend password کو secure password hashing
-     * کے ذریعے محفوظ کرے گا۔
+     * Account Creation Country and Account Creation
+     * City must be stored as permanent account-security
+     * information and must not be treated as editable
+     * profile information.
      *
-     * Security information کو Public Profile
-     * میں ظاہر نہیں کیا جائے گا۔
-     *
-     * Account Creation Country
-     * Account Creation City
-     * Date of Birth
-     * Birth City
-     * Family Name
-     *
-     * کو account security records کے طور پر
-     * محفوظ کیا جائے گا اور بعد میں عام صارف
-     * کے لیے editable نہیں رکھا جائے گا۔
-     *
-     * Example API:
-     *
-     * POST
-     * /account/create
+     * Current Country is separate and may be updated
+     * according to the account rules.
      */
 
 
@@ -927,17 +1123,23 @@
 
       familyName: familyName,
 
-      email: email,
+      emailAddress: email,
 
       mobileNumber: mobile,
 
-      messenger: messenger,
+      selectedMessenger: messenger,
 
-      accountCreationCountry: accountCountry,
+      messengerContact: messengerContact,
 
-      accountCreationProvince: accountProvince,
+      accountCreationCountry: accountCreationCountry,
 
-      accountCreationCity: accountCity,
+      accountCreationCity: accountCreationCity,
+
+      currentCountry: currentCountry,
+
+      currentProvince: currentProvince,
+
+      currentCity: currentCity,
 
       postalCode: postalCode,
 
@@ -947,8 +1149,6 @@
 
       password: password,
 
-      referralCode: referralCode,
-
       termsAccepted: termsAgreement,
 
       privacyAccepted: privacyAgreement
@@ -956,7 +1156,7 @@
 
 
     /*
-     * Backend connection will be added here.
+     * Backend API will be connected here.
      *
      * Example:
      *
@@ -976,9 +1176,7 @@
     message.style.display = "block";
 
     message.innerHTML =
-      "Your account creation request will be processed by the Backend Server. " +
-      "An email verification process will be required before the account is verified.";
-
+      "Your account creation request is ready to be processed by the Backend Server. Email verification will be required.";
 
     button.disabled = false;
     button.textContent = "Create Account";
