@@ -1,9 +1,260 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Digital Earnings</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f7;
+      color: #222;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: #18212b;
+      color: #fff;
+      padding: 18px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .header h1 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    /* Main */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Welcome */
+    .welcome {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .welcome h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Balance */
+    .balance-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .balance-title {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .balance {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    /* Options */
+    .options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .option {
+      background: #fff;
+      border: 1px solid #e2e5e8;
+      border-radius: 10px;
+      padding: 18px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      min-height: 100px;
+    }
+
+    .option:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    }
+
+    .option-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .option-title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+      .options {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .header h1 {
+        font-size: 21px;
+      }
+
+      .container {
+        padding: 14px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Digital Earnings</h1>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Digital Earnings</h1>
+    <p>Earning Account</p>
+  </header>
+
+
+  <!-- Main Dashboard -->
+  <main class="container">
+
+    <!-- Welcome -->
+    <section class="welcome">
+      <h2>Welcome</h2>
+      <p>Welcome to your Digital Earnings account.</p>
+    </section>
+
+
+    <!-- Balance -->
+    <section class="balance-box">
+      <div class="balance-title">Available Balance</div>
+      <div class="balance">$0.00</div>
+    </section>
+
+
+    <!-- Main Options -->
+    <section class="options">
+
+      <div class="option">
+        <div class="option-icon">🏠</div>
+        <div class="option-title">Dashboard</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">🎬</div>
+        <div class="option-title">Watch Ad / Earn</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">📊</div>
+        <div class="option-title">Earnings History</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">💳</div>
+        <div class="option-title">Withdrawal</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">📜</div>
+        <div class="option-title">Withdrawal History</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">🔄</div>
+        <div class="option-title">Internal Transfer</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">🎁</div>
+        <div class="option-title">Extra Bonus</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">👤</div>
+        <div class="option-title">Account</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">🔐</div>
+        <div class="option-title">Security</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">🛟</div>
+        <div class="option-title">Support</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">⚙️</div>
+        <div class="option-title">Settings</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">ℹ️</div>
+        <div class="option-title">About Us</div>
+      </div>
+
+      <div class="option">
+        <div class="option-icon">🔒</div>
+        <div class="option-title">Privacy Policy</div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer>
+    Digital Earnings
+  </footer>
+
 </body>
 </html>
